@@ -1,6 +1,6 @@
 # Burst Super Resolution Challenge
 
-
+## Invironment Setting
 #### Install dependencies
 ```
 bash install.sh conda_install_path 
@@ -12,6 +12,10 @@ rm *.so
 rm -r build/
 python3 setup.py build develop
 ```
+
+#### Root setting
+Go to the [local.py](admin/local.py) file and set all datasets, models, and results paths.
+And save all the pretrained models in the [pretrained](pretrained_networks) directory.
 
 ## Datasets
 The toolkit provides integration for following datasets which can be used to train/evaluate the models.
@@ -196,6 +200,60 @@ before you can visualize them using visualize_results.py.
 
 </details>
 
+## Model Zoo
+Here, we provide pre-trained network weights and report their performance. 
+
+**Note:** The models have been retrained using the cleaned up code, and thus can have small performance 
+differences compared to the models used for the paper.
+
+<details>
+<summary><b>SyntheticBurst models</b></summary> 
+
+The models are evaluated using all 14 burst images.
+
+|          Model         |  PSNR | MS-SSIM | LPIPS |                                            Links                                            | Notes                    |
+|:----------------------:|:-----:|:-------:|:-----:|:-------------------------------------------------------------------------------------------:|--------------------------|
+| ICCV2021               | 41.56 | 0.964   | 0.045 | -                                                                                           | ICCV2021 results         |
+| deeprep_sr_synthetic_default | 41.55 | -   | - | [model](https://drive.google.com/file/d/1GZ0S4BKaZbgiy9WmoYH4kAsXY7zDR_ks/view?usp=sharing) | Official retrained model |
+
+</details>
+
+<details>
+<summary><b>BurstSR models</b></summary> 
+
+The models are evaluated using all 14 burst images. The metrics are computed after spatial and color alignment, as 
+described in [DBSR paper](https://arxiv.org/pdf/2101.10997.pdf).
+
+|          Model         |  PSNR | MS-SSIM | LPIPS |                                            Links                                            | Notes                    |
+|:----------------------:|:-----:|:-------:|:-----:|:-------------------------------------------------------------------------------------------:|--------------------------|
+| ICCV2021               | 48.33 | 0.985   | 0.023 | -                                                                                           | ICCV2021 results         |
+| deeprep_sr_burstsr_default | - | -   | - | [model](https://drive.google.com/file/d/1qvV41jWgPShY2f-I6-xUbTzxcDWqFX_6/view?usp=sharing) | Official retrained model |
+
+</details>
+
+<details>
+<summary><b>Grayscale denoising models</b></summary> 
+
+The models are evaluated using all 8 burst images.
+
+|          Model         |  Gain 1 | Gain 2 | Gain 4 | Gain 8 |                                            Links                                            | Notes                    |
+|:----------------------:|:-----:|:-------:|:-----:|:-----:|:-------------------------------------------------------------------------------------------:|--------------------------|
+| deeprep_denoise_grayscale_pwcnet | 39.37 | 36.51   | 33.38 | 29.69 |[model](https://drive.google.com/file/d/1Yt6qHeAexezqGfn-l9Zz0UpihhTtuMZu/view?usp=sharing) | Official retrained model |
+| deeprep_denoise_grayscale_customflow | 39.10 | 36.14   | 32.89 | 28.98 |[model](https://drive.google.com/file/d/1KVZwVKdMvnliaA0uajJExbd9xTcdUTVJ/view?usp=sharing) | Official retrained model |
+
+</details>
+
+<details>
+<summary><b>Color denoising models</b></summary> 
+
+The models are evaluated using all 8 burst images.
+
+|          Model         |  Gain 1 | Gain 2 | Gain 4 | Gain 8 |                                            Links                                            | Notes                    |
+|:----------------------:|:-----:|:-------:|:-----:|:-----:|:-------------------------------------------------------------------------------------------:|--------------------------|
+| deeprep_denoise_color_pwcnet | 42.21 | 39.13   | 35.75 | 32.52 |[model](https://drive.google.com/file/d/1wk8NqoLSAZYrhRdzvMXAyRJd4txta7QZ/view?usp=sharing) | Official retrained model |
+| deeprep_denoise_color_customflow | 41.90 | 38.85   | 35.48 | 32.29 |[model](https://drive.google.com/file/d/1Up3k8Eb2NsaimeN3oLjp1x62owiB5fwW/view?usp=sharing) | Official retrained model |
+
+</details>
 
 ## Training 
 
@@ -212,7 +270,7 @@ training settings used to obtain the results in the ICCV paper.
 
 ## Testing
 
-You should change the root in [synthetic_test_set](dataset/synthetic_test_set.py),[burstsr_test_set](dataset/burstsr_dataset.py).
+You should change the testset root in [synthetic_test_set](dataset/synthetic_test_set.py), [burstsr_test_set](dataset/burstsr_dataset.py).
 
 You can learn the test set with the following command.
 
