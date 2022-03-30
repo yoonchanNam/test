@@ -1,17 +1,24 @@
 # 2022 Burst Super Resolution Challenge
 This code is based on [deeprep](https://github.com/goutamgmb/deep-rep).
 ## Invironment Setting
+
+
+
 #### Install dependencies
 Base line setting
 ```
+cd 2022_burstsr_challenge
 bash install.sh conda_install_path 
 ``` 
-DCN setting   
+
+DCN setting
+** For the convenience of setting up an DCN module environment, we recommend not using a virtual environment.** 
+
 ```
-cd  busrsr_challenge/models/DCNv2
-rm *.so
-rm -r build/
-python3 setup.py build develop
+cd  models/DCNv2
+sudo rm *.so
+sudo rm -r build/
+sudo python setup.py build develop
 ```
 
 #### Root setting
