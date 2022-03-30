@@ -11,7 +11,8 @@ cd 2022_burstsr_challenge
 bash install.sh conda_install_path 
 ``` 
 
-DCN setting
+DCN setting.
+
 ** For the convenience of setting up an DCN module environment, we recommend not using a virtual environment.** 
 
 ```
