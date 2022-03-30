@@ -1,5 +1,5 @@
-# Burst Super Resolution Challenge
-This repository is based on [deeprep](https://github.com/goutamgmb/deep-rep).
+# 2022 Burst Super Resolution Challenge
+This code is based on [deeprep](https://github.com/goutamgmb/deep-rep).
 ## Invironment Setting
 #### Install dependencies
 Base line setting
@@ -273,7 +273,7 @@ training settings used to obtain the results in the ICCV paper.
 
 You should change the testset root in [synthetic_test_set](dataset/synthetic_test_set.py), [burstsr_test_set](dataset/burstsr_dataset.py) file.
 
-And, you should change the pretrained models name in [synthetic_default](evaluation/synburst/experiments/default.py), [busrsr_default](evaluation/burstsr/experiments/default.py)
+And, change the pretrained models name in [synthetic_default](evaluation/synburst/experiments/default.py), [burstsr_default](evaluation/burstsr/experiments/default.py)
 
 You can run the test code with the following command.
 
